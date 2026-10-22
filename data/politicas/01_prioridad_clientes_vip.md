@@ -1,0 +1,3 @@
+# Política de prioridad de clientes VIP
+Los clientes VIP (farmacias, clínicas y laboratorios) tienen contrato de nivel de servicio. Sus pedidos reciben una prioridad base mayor y se secuencian antes que los de clientes normales cuando las ventanas horarias son similares.
+Cuando un cliente VIP solicita urgencia, el pedido sube a prioridad 4 (máxima). Si el cliente indica una hora límite, la ventana de entrega se acorta a esa hora. El despachador debe reordenar la ruta del camión más cercano y avisar a los clientes normales que resulten desplazados. Si ningún camión puede cumplir la hora límite, el caso se escala al supervisor de operaciones.

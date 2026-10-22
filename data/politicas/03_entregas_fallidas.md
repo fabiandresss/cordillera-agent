@@ -1,0 +1,3 @@
+# Política de entregas fallidas y reintentos
+Una entrega fallida ocurre cuando el cliente está ausente, rechaza el pedido o la dirección es incorrecta. Se permiten como máximo dos intentos por pedido. Tras el primer fallo, si queda holgura en la jornada, se reintenta el mismo día en una nueva ventana de dos horas; si no hay holgura o el cliente tiene antecedentes de ausencia, se reprograma para el día siguiente por la mañana.
+Al segundo intento fallido el pedido no se reprograma de forma automática: se escala al supervisor para decidir devolución o contacto directo con el cliente. Siempre se avisa al cliente del nuevo plan.

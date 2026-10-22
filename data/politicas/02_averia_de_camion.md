@@ -1,0 +1,3 @@
+# Política ante avería de un camión
+Cuando un camión se avería, se retira de la jornada y su estado pasa a averiado. Los pedidos que aún no fueron entregados vuelven a la cola y se reasignan entre los camiones disponibles, respetando la capacidad de carga y las ventanas horarias. Se prefieren los camiones de mayor capacidad y los más cercanos a la zona de los pedidos.
+Todos los clientes cuyo pedido cambie de camión o de hora estimada deben recibir un aviso con la nueva hora. Si luego de reasignar quedan pedidos que no se pueden entregar dentro de su ventana, se escalan al supervisor. Toda avería se registra como incidente con su resolución.

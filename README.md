@@ -126,6 +126,7 @@ Registro de `pytest`: [docs/evidencia/pytest.txt](docs/evidencia/pytest.txt). Ej
 |---|---|
 | Informe (plantilla Duoc UC, 5 páginas de contenido) | [docs/informe/Informe_EP2_ISY0101_Duoc.docx](docs/informe/Informe_EP2_ISY0101_Duoc.docx) |
 | Presentación (plantilla Duoc UC, 13 láminas con notas del orador) | [docs/presentacion/Presentacion_EP2_Cordillera.pptx](docs/presentacion/Presentacion_EP2_Cordillera.pptx) |
+| Guía simple del sistema (PDF con pantallazos, para no técnicos) | [docs/guia/Guia_Simple_del_Sistema.pdf](docs/guia/Guia_Simple_del_Sistema.pdf) |
 
 Ambos se generan con `scripts/build_informe_duoc.py` y `scripts/build_presentacion.py` a partir de las plantillas
 institucionales (`--template <ruta>`). Los datos que faltan (nombre del segundo integrante, docente, enlace del

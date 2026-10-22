@@ -10,3 +10,5 @@ outputs/*
 .coverage
 frontend/node_modules/
 docs/informe/*.bookmarks.json
+docs/guia/img/
+docs/guia/proc/

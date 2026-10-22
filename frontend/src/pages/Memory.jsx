@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Tabs, Card, Notice, Tile, List, ListRow, DataTable, Badge, SearchBar, ProgressBar, EmptyState, Button, Spinner, Eyebrow,
 } from "../components";
@@ -7,11 +7,16 @@ import { EVENT_LABEL, EVENT_ICON, EVENT_TONE, HISTORY_OUTCOME } from "../lib";
 
 const SUGGESTIONS = ["se me rompió una rueda del camión", "cliente ausente en la dirección", "farmacia pide entrega urgente"];
 
+const hashQuery = () => decodeURIComponent((window.location.hash.split("?q=")[1] ?? "").replace(/\+/g, " "));
+const hashTab = () => (window.location.hash.includes("/search") ? "search" : window.location.hash.includes("/long") ? "long" : "short");
+
 function Search() {
-  const [q, setQ] = useState("");
+  const [q, setQ] = useState(hashQuery);
   const [hits, setHits] = useState(null);
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState(null);
+
+  useEffect(() => { if (hashQuery().length > 1) run(hashQuery()); }, []); // eslint-disable-line
 
   const run = async (text) => {
     const term = (text ?? q).trim();
@@ -55,7 +60,7 @@ function Search() {
 }
 
 export default function MemoryPage({ ov }) {
-  const [tab, setTab] = useState("short");
+  const [tab, setTab] = useState(hashTab);
   return (
     <>
       <div className="page-title">

@@ -20,8 +20,23 @@ const SHORT = { dash: "Control", routes: "Rutas", orders: "Pedidos", assistant: 
 const DOCK = NAV.filter((n) => SHORT[n.id]).map((n) => ({ ...n, label: SHORT[n.id] }));
 const PROVIDER_LABEL = { rules: "Modo reglas", ollama: "Ollama local", groq: "Groq" };
 
+const PAGES = NAV.map((n) => n.id);
+const fromHash = () => {
+  const h = window.location.hash.replace(/^#\/?/, "").split(/[/?]/)[0];
+  return PAGES.includes(h) ? h : "dash";
+};
+
 export default function App() {
-  const [nav, setNav] = useState("dash");
+  const [nav, setNavState] = useState(fromHash);
+  const setNav = (id) => {
+    setNavState(id);
+    window.history.replaceState(null, "", `#${id}`);
+  };
+  useEffect(() => {
+    const onHash = () => setNavState(fromHash());
+    window.addEventListener("hashchange", onHash);
+    return () => window.removeEventListener("hashchange", onHash);
+  }, []);
   const [ov, setOv] = useState(null);
   const [result, setResult] = useState(null);
   const [busy, setBusy] = useState(false);

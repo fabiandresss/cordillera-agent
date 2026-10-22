@@ -1,0 +1,46 @@
+---
+config:
+  flowchart:
+    curve: linear
+---
+graph TD;
+	__start__([<p>__start__</p>]):::first
+	ingest_event(ingest_event)
+	classify_event(classify_event)
+	clarify(clarify)
+	escalate(escalate)
+	record_only(record_only)
+	retrieve_context(retrieve_context)
+	apply_event(apply_event)
+	plan(plan)
+	validate(validate)
+	repair(repair)
+	escalate_partial(escalate_partial)
+	execute(execute)
+	draft_notifications(draft_notifications)
+	notify_and_log(notify_and_log)
+	__end__([<p>__end__</p>]):::last
+	__start__ --> ingest_event;
+	apply_event -.-> draft_notifications;
+	apply_event -.-> plan;
+	apply_event -.-> record_only;
+	classify_event -.-> clarify;
+	classify_event -.-> escalate;
+	classify_event -.-> retrieve_context;
+	draft_notifications --> notify_and_log;
+	escalate_partial --> execute;
+	execute --> draft_notifications;
+	ingest_event --> classify_event;
+	plan --> validate;
+	repair --> validate;
+	retrieve_context --> apply_event;
+	validate -.-> escalate_partial;
+	validate -.-> execute;
+	validate -.-> repair;
+	clarify --> __end__;
+	escalate --> __end__;
+	notify_and_log --> __end__;
+	record_only --> __end__;
+	classDef default fill:#f2f0ff,line-height:1.2
+	classDef first fill-opacity:0
+	classDef last fill:#bfb6fc

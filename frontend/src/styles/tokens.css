@@ -1,0 +1,272 @@
+/* ==========================================================================
+   Fintech UI — design tokens
+   Diez temas: <html data-theme="mist|noir|lime|midnight|forest|ember|indigo|obsidian|fresh|clean">.
+   También funcionan en un contenedor (<section data-theme="lime">). Un tema anidado hereda
+   del tema raíz los tokens que no redefine: deja el raíz en mist si vas a mezclar.
+   Todo lo demás (components.css) lee SOLO estas variables, así que cambiar
+   de tema o de marca = cambiar valores aquí, nunca tocar los componentes.
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Inter+Tight:wght@500;600;700&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap");
+
+:root,
+:root[data-theme="mist"],
+[data-theme="mist"] {
+  /* Superficies */
+  --bg-page: #eeeff0;
+  --surface: #ffffff;
+  --surface-soft: #f6f6f7;
+  --surface-mute: #efeff1;
+  --surface-inverse: #0b0b0c;
+
+  /* Texto */
+  --ink: #0b0b0c;
+  --ink-2: #6b6f76;
+  --ink-3: #a3a7ae;
+  --ink-inverse: #ffffff;
+  --ink-inverse-2: rgba(255, 255, 255, 0.62);
+
+  /* Acento (botón primario de marca) */
+  --accent: #0b0b0c;
+  --accent-ink: #ffffff;
+  --accent-soft: #e7f4ee;
+  --positive: #1f9d68;
+  --negative: #0b0b0c; /* en mist los egresos van en negro, no en rojo */
+
+  /* Líneas y sombras */
+  --line: rgba(11, 11, 12, 0.06);
+  --line-strong: rgba(11, 11, 12, 0.12);
+  --shadow-1: 0 1px 2px rgba(16, 24, 40, 0.04);
+  --shadow-2: 0 8px 24px -8px rgba(16, 24, 40, 0.1), 0 1px 2px rgba(16, 24, 40, 0.04);
+  --shadow-3: 0 24px 60px -20px rgba(16, 24, 40, 0.22);
+
+  /* Hero / gradiente de cabecera */
+  --hero-gradient:
+    radial-gradient(120% 60% at 50% 100%, rgba(207, 238, 227, 0.95) 0%, rgba(207, 238, 227, 0) 70%),
+    linear-gradient(180deg, #0f3b50 0%, #1b5560 28%, #6fb1a6 58%, #c9ebdf 80%, #ffffff 100%);
+  --hero-ink: #ffffff;
+
+  /* Radios */
+  --r-xs: 10px;
+  --r-sm: 14px;
+  --r-md: 20px;
+  --r-lg: 28px;
+  --r-xl: 36px;
+  --r-pill: 999px;
+
+  /* Tipografía */
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: var(--font-sans);
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Ritmo */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 28px;
+  --space-7: 40px;
+  --space-8: 64px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur: 220ms;
+
+  /* Semánticos (badges, deltas, alertas). Siempre en pareja sólido + suave */
+  --success: #16a34a;  --success-soft: #e3f6e9;
+  --warning: #d97706;  --warning-soft: #fdf1dc;
+  --danger:  #dc2626;  --danger-soft:  #fde8e8;
+  --info:    #2563eb;  --info-soft:    #e5edfd;
+
+  /* Formularios */
+  --field-bg: #f2f2f3;
+  --field-h: 44px;
+  --r-field: var(--r-pill);
+
+  /* Tintes pastel para círculos de iconos (feature icons) */
+  --tint-1: #e7f4ec;
+  --tint-2: #e5effb;
+  --tint-3: #fdeee3;
+  --tint-4: #f1ecfd;
+
+  /* Texto sobre el fondo de página (solo cambia en temas de página oscura) */
+  --page-ink: var(--ink);
+}
+
+/* Noir — splash oscuro + wallet blanco + dock negro (estilo Payropp) */
+:root[data-theme="noir"],
+[data-theme="noir"] {
+  --bg-page: #f3f3f3;
+  --surface-soft: #f2f2f3;
+  --surface-mute: #e9e9eb;
+  --accent: #0b0b0c;
+  --negative: #0b0b0c;
+  --hero-gradient:
+    radial-gradient(60% 40% at 20% 90%, rgba(48, 44, 120, 0.55), transparent 70%),
+    radial-gradient(50% 35% at 85% 85%, rgba(120, 40, 44, 0.45), transparent 70%),
+    linear-gradient(180deg, #020203 0%, #07070c 60%, #0d0b12 100%);
+  --r-lg: 32px;
+  --r-xl: 44px;
+}
+
+/* Lime — dashboard verde lima + verde bosque (estilo Spotbank) */
+:root[data-theme="lime"],
+[data-theme="lime"] {
+  --bg-page: #f1f7e9;
+  --surface: #ffffff;
+  --surface-soft: #f7faf2;
+  --surface-mute: #eef3e6;
+  --ink: #0d1a0d;
+  --ink-2: #66705f;
+  --ink-3: #a9b2a2;
+  --accent: #d2f54a;
+  --accent-ink: #0b3d0b;
+  --accent-soft: #e9fbb0;
+  --positive: #2e8b2e;
+  --negative: #0d1a0d;
+  --brand-deep: #0b3d0b;
+  --hero-gradient: linear-gradient(120deg, #b9f26a 0%, #d6fb8f 55%, #eaffc0 100%);
+  --hero-ink: #0b3d0b;
+  --font-sans: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-sans);
+  --shadow-2: 0 14px 34px -14px rgba(60, 100, 20, 0.22), 0 1px 2px rgba(16, 24, 40, 0.04);
+}
+
+/* Midnight — landing navy→cielo + lima (estilo Finexa) */
+:root[data-theme="midnight"],
+[data-theme="midnight"] {
+  --bg-page: #e9ecf1;
+  --surface: #ffffff;
+  --surface-soft: #f4f5f7;
+  --surface-mute: #eceef2;
+  --ink: #0a0f1f;
+  --ink-2: #5f6676;
+  --ink-3: #9aa1b1;
+  --accent: #d2f54a;
+  --accent-ink: #0a0f1f;
+  --accent-soft: #ecf9b8;
+  --brand-blue: #4a63f0;
+  --brand-blue-2: #7b8df7;
+  --hero-gradient:
+    linear-gradient(180deg, #030616 0%, #0a1240 30%, #1c3bb0 60%, #4d79e6 82%, #ffffff 100%);
+  --hero-ink: #ffffff;
+  --card-highlight: linear-gradient(180deg, #2f49d8 0%, #5b78f0 100%);
+}
+
+/* Forest — viajes/hospitalidad premium: verde bosque + serif editorial (estilo Wanderly) */
+:root[data-theme="forest"],
+[data-theme="forest"] {
+  --bg-page: #f5f5f2;
+  --surface-soft: #f5f6f3;
+  --surface-mute: #eef0ec;
+  --surface-inverse: #0f3d2e;
+  --ink: #15201b;
+  --ink-2: #5d6661;
+  --ink-3: #9aa29d;
+  --accent: #0f3d2e;
+  --accent-ink: #ffffff;
+  --accent-soft: #e4efe8;
+  --positive: #1b7a4f;
+  --hero-gradient: linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(5,20,15,.62) 100%);
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --field-bg: #f3f4f2;
+}
+
+/* Ember — movilidad/servicios: naranja + negro sobre fondo durazno, titulares gigantes */
+:root[data-theme="ember"],
+[data-theme="ember"] {
+  --bg-page: #f1d6bb;
+  --surface-soft: #f6f6f6;
+  --surface-mute: #efefef;
+  --surface-inverse: #0b0b0b;
+  --ink: #0b0b0b;
+  --ink-2: #5f5f5f;
+  --ink-3: #a0a0a0;
+  --accent: #ff7a00;
+  --accent-ink: #ffffff;   /* úsalo en texto ≥ 16px semibold; para texto pequeño sobre naranja usa negro */
+  --accent-soft: #ffeedd;
+  --positive: #ff7a00;
+  --font-display: "Inter Tight", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --hero-gradient: linear-gradient(180deg, #ff8a1a, #ff7000);
+}
+
+/* Indigo — SaaS/admin denso: índigo + panel navy (estilo FlowFin) */
+:root[data-theme="indigo"],
+[data-theme="indigo"] {
+  --bg-page: #f4f5fb;
+  --surface-soft: #f7f7fc;
+  --surface-mute: #eef0f8;
+  --surface-inverse: #1b1c3d;
+  --ink: #101226;
+  --ink-2: #686c84;
+  --ink-3: #a1a4b8;
+  --accent: #5046e5;
+  --accent-ink: #ffffff;
+  --accent-soft: #eceafd;
+  --card-highlight: linear-gradient(140deg, #6157f2 0%, #4338ca 100%);
+  --hero-gradient: linear-gradient(140deg, #6157f2 0%, #4338ca 100%);
+  --r-lg: 20px;
+  --r-xl: 24px;
+  --r-md: 14px;
+  --r-field: 12px;
+  --field-bg: #ffffff;
+  --shadow-1: 0 1px 2px rgba(16, 18, 38, .05), 0 0 0 1px rgba(16, 18, 38, .04);
+}
+
+/* Obsidian — wallet nocturno: página negra con brillo teal, hojas blancas, tarjetas metálicas */
+:root[data-theme="obsidian"],
+[data-theme="obsidian"] {
+  --bg-page: #07080a;
+  --page-ink: #ffffff;
+  --surface: #ffffff;
+  --surface-soft: #f4f4f5;
+  --surface-mute: #ececee;
+  --surface-inverse: #17181b;
+  --ink: #0b0b0c;
+  --accent: #ffffff;
+  --accent-ink: #0b0b0c;
+  --positive: #16a34a;
+  --hero-gradient:
+    radial-gradient(70% 45% at 25% 25%, rgba(31, 78, 92, .75), transparent 70%),
+    radial-gradient(50% 35% at 90% 10%, rgba(40, 60, 90, .45), transparent 70%),
+    #050607;
+  --hero-ink: #ffffff;
+  --glass-dark: rgba(255, 255, 255, .08);
+}
+
+/* Fresh — ahorro grupal / social: verde vivo como acento, botón primario negro */
+:root[data-theme="fresh"],
+[data-theme="fresh"] {
+  --bg-page: #f3f4f6;
+  --surface-soft: #f6f7f8;
+  --surface-mute: #eeeff1;
+  --ink: #111214;
+  --accent: #3cb44b;
+  --accent-ink: #ffffff;
+  --accent-soft: #e4f6e6;
+  --positive: #2f9e3f;
+  --negative: #e5484d;
+  --hero-gradient: linear-gradient(115deg, #4cb84f 0%, #7fcf6a 55%, #c9e8a8 100%);
+  --hero-ink: #ffffff;
+}
+
+/* Clean — kits tipo shadcn/HeroUI: neutro puro, campos rellenos, acento azul opcional */
+:root[data-theme="clean"],
+[data-theme="clean"] {
+  --bg-page: #f4f4f5;
+  --surface-soft: #f4f4f5;
+  --surface-mute: #ececee;
+  --ink: #09090b;
+  --ink-2: #71717a;
+  --ink-3: #a1a1aa;
+  --accent: #006fee;
+  --accent-ink: #ffffff;
+  --accent-soft: #e6f0fe;
+  --r-lg: 24px;
+  --r-xl: 28px;
+  --field-bg: #f4f4f5;
+  --shadow-1: 0 1px 2px rgba(0,0,0,.04), 0 0 0 1px rgba(0,0,0,.05);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur: 0ms; }
+}

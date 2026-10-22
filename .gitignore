@@ -8,3 +8,4 @@ outputs/*
 !outputs/.gitkeep
 *.db
 .coverage
+frontend/node_modules/

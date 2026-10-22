@@ -49,13 +49,16 @@ def ingest_event(state: AgentState) -> dict:
 
 def classify_event(state: AgentState) -> dict:
     c = reasoning.classify_event(state["event_text"])
-    msg = f"🧠 Clasificado como **{c['tipo']}** (fuente: {c['source']})"
-    ids = {k: c[k] for k in ("truck_id", "order_id", "client_id") if c.get(k)}
-    if ids:
-        msg += f" · entidades: {ids}"
-    for k in ("invalid_truck", "invalid_order", "invalid_client"):
+    src = ("LLM" if c["source"] == "llm" else
+           "reglas (prevalecieron sobre el LLM)" if "prevalec" in c["source"] else "reglas")
+    msg = f"🧠 Clasificado como **{c['tipo']}** (fuente: {src})"
+    labels = {"truck_id": "camión", "order_id": "pedido", "client_id": "cliente"}
+    ents = [f"{labels[k]} {c[k]}" for k in labels if c.get(k)]
+    if ents:
+        msg += " · " + ", ".join(ents)
+    for k, name in (("invalid_truck", "camión"), ("invalid_order", "pedido"), ("invalid_client", "cliente")):
         if c.get(k):
-            msg += f" · ⚠️ id inexistente descartado ({k}={c[k]})"
+            msg += f" · ⚠️ {name} {c[k]} no existe: se descartó"
     return {"classification": c, "log": _say(state, msg)}
 
 

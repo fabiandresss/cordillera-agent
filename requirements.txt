@@ -8,5 +8,7 @@ langchain-chroma
 chromadb
 pydantic
 python-dotenv
-streamlit
+fastapi
+uvicorn
+httpx
 pytest

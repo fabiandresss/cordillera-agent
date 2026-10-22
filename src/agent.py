@@ -1,6 +1,6 @@
 """Punto de entrada del agente: ejecuta eventos sobre el grafo con memoria."""
 import copy
-import time
+import uuid
 
 from . import memory
 from .graph import build_graph
@@ -17,7 +17,7 @@ class DispatchAgent:
     """Agente de despacho con memoria corta (checkpointer) y larga (Chroma)."""
 
     def __init__(self, thread_id: str | None = None, persist: bool = True, index: bool = True):
-        self.thread_id = thread_id or f"jornada-{int(time.time())}"
+        self.thread_id = thread_id or f"jornada-{uuid.uuid4().hex[:10]}"
         self.graph = build_graph(memory.get_checkpointer() if persist else None)
         if index:
             memory.index_all()

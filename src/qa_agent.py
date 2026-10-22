@@ -31,6 +31,6 @@ def build_qa_agent(model=None, checkpointer=None):
 def ask(agent, question: str, thread_id: str = "chat-1") -> tuple[str, list[str]]:
     """Devuelve (respuesta, herramientas_usadas)."""
     res = agent.invoke({"messages": [{"role": "user", "content": question}]},
-                       {"configurable": {"thread_id": thread_id}})
+                       {"configurable": {"thread_id": thread_id}, "recursion_limit": 8})  # tope de pasos: evita bucles de un LLM pequeño
     used = [tc["name"] for m in res["messages"] if isinstance(m, AIMessage) for tc in (m.tool_calls or [])]
     return res["messages"][-1].content, used

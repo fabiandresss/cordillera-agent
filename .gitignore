@@ -12,3 +12,7 @@ frontend/node_modules/
 docs/informe/*.bookmarks.json
 docs/guia/img/
 docs/guia/proc/
+
+video/out/
+video/stills/
+video/audio/*.wav

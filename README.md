@@ -121,7 +121,17 @@ Las mismas condiciones se verifican automáticamente en [`tests/test_scenarios.p
 Registro de `pytest`: [docs/evidencia/pytest.txt](docs/evidencia/pytest.txt). Ejecución con el LLM local real
 (`qwen2.5:1.5b`): [docs/evidencia_ollama/](docs/evidencia_ollama/).
 
-## 10. Estructura del repositorio
+## 10. Documentos de la entrega
+| Documento | Ubicación |
+|---|---|
+| Informe (plantilla Duoc UC, 5 páginas de contenido) | [docs/informe/Informe_EP2_ISY0101_Duoc.docx](docs/informe/Informe_EP2_ISY0101_Duoc.docx) |
+| Presentación (plantilla Duoc UC, 13 láminas con notas del orador) | [docs/presentacion/Presentacion_EP2_Cordillera.pptx](docs/presentacion/Presentacion_EP2_Cordillera.pptx) |
+
+Ambos se generan con `scripts/build_informe_duoc.py` y `scripts/build_presentacion.py` a partir de las plantillas
+institucionales (`--template <ruta>`). Los datos que faltan (nombre del segundo integrante, docente, enlace del
+repositorio, conclusiones y reflexiones) se completan directamente en los archivos.
+
+## 11. Estructura del repositorio
 ```
 ├── data/            seed.py (datos sintéticos) · traffic.json · politicas/*.md
 ├── src/
@@ -135,22 +145,22 @@ Registro de `pytest`: [docs/evidencia/pytest.txt](docs/evidencia/pytest.txt). Ej
 ├── api/             main.py (FastAPI: expone el agente y sirve el panel)
 ├── frontend/        React + Vite con el kit fintech-ui-react (src/pages, src/components, dist/)
 ├── tests/           57 pruebas (unitarias, escenarios y API)
-├── scripts/         generate_evidence.py · make_diagrams.py
+├── scripts/         generate_evidence.py · make_diagrams.py · build_informe_duoc.py · build_presentacion.py
 └── docs/            diagramas · bocetos · evidencia · decisiones
 ```
 
-## 11. Limitaciones
+## 12. Limitaciones
 Geografía y tráfico simulados; una carga por camión y jornada; heurística voraz con reparación local
 (no óptimo global); avisos simulados (`outputs/outbox.jsonl`); un LLM de 1.5B es débil en *tool
 calling*, por eso las decisiones críticas son código. Detalle en [docs/decisiones.md](docs/decisiones.md).
 
-## 12. Declaración de uso de IA
+## 13. Declaración de uso de IA
 > **Completar por el equipo antes de entregar** (la evaluación exige declarar qué herramientas de IA se
 > usaron y cómo). Ejemplo de formato: «Se usó Claude (Anthropic) como asistente para generar código
 > base, pruebas y diagramas, que fueron revisados y validados por el equipo. Las justificaciones
 > técnicas, conclusiones y reflexiones fueron redactadas por los integrantes sin apoyo de IA.»
 
-## 13. Referencias (APA 7)
+## 14. Referencias (APA 7)
 - Chase, H. (2022–). *LangChain* [Software]. LangChain, Inc. https://github.com/langchain-ai/langchain
 - LangChain, Inc. (2024). *LangGraph documentation*. https://langchain-ai.github.io/langgraph/
 - Chroma. (2023). *Chroma: the AI-native open-source embedding database*. https://www.trychroma.com/

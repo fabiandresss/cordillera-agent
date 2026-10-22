@@ -6,7 +6,7 @@ _Proveedor LLM: `ollama` · embeddings: `ollama` · umbral de similitud: 0.6_
 
 ```text
 📥 Evento recibido: «Inicio de jornada»
-🧠 Clasificado como nuevo_dia (fuente: reglas (LLM no disponible: GROQ_API_KEY no está definida en .env))
+🧠 Clasificado como nuevo_dia (fuente: reglas)
 🗓️ Inicio de jornada 2026-10-26: se planifican todos los pedidos abiertos
 🗺️ Plan calculado a las 08:00: 25 entregas en 5 camiones
 ⚠️ Validación: 1 violaciones (VENTANA)
@@ -27,7 +27,7 @@ Ejemplos de avisos a clientes:
 
 ```text
 📥 Evento recibido: «A las 11:00 el camión 4 se averió»
-🧠 Clasificado como averia (fuente: reglas (LLM no disponible: GROQ_API_KEY no está definida en .env)) · entidades: {'truck_id': 4}
+🧠 Clasificado como averia (fuente: reglas) · camión 4
 📚 Memoria larga: incidente similar (similitud 0.604): «El camión no arranca por batería descargada en zona Norte Resolución: Se reasignaron las entregas pendientes a…» → estrategia previa: reasignar_a_mayor_capacidad
 📖 Política aplicable: 02_averia_de_camion.md
 ⏱️ Reloj simulado a 11:00; entregas ya realizadas: [9, 1, 3, 20, 5, 11, 10, 18, 12]

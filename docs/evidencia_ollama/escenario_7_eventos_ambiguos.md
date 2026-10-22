@@ -6,7 +6,7 @@ _Proveedor LLM: `ollama` · embeddings: `ollama` · umbral de similitud: 0.6_
 
 ```text
 📥 Evento recibido: «Inicio de jornada»
-🧠 Clasificado como nuevo_dia (fuente: llm)
+🧠 Clasificado como nuevo_dia (fuente: LLM)
 🗓️ Inicio de jornada 2026-10-26: se planifican todos los pedidos abiertos
 🗺️ Plan calculado a las 08:00: 25 entregas en 5 camiones
 ⚠️ Validación: 1 violaciones (VENTANA)
@@ -27,7 +27,7 @@ Ejemplos de avisos a clientes:
 
 ```text
 📥 Evento recibido: «No funciona nada!»
-🧠 Clasificado como otro (fuente: llm)
+🧠 Clasificado como otro (fuente: LLM)
 🚨 Evento no reconocido → escalado al supervisor (sin cambios al plan)
 ```
 
@@ -37,7 +37,7 @@ Ejemplos de avisos a clientes:
 
 ```text
 📥 Evento recibido: «Se averió un camión»
-🧠 Clasificado como averia (fuente: llm)
+🧠 Clasificado como averia (fuente: LLM)
 ❓ Faltan datos: ¿Qué camión tiene la avería? Indica el número de camión.
 ```
 
@@ -48,7 +48,7 @@ Ejemplos de avisos a clientes:
 
 ```text
 📥 Evento recibido: «El camión 99 se averió»
-🧠 Clasificado como averia (fuente: llm) · ⚠️ id inexistente descartado (invalid_truck=99)
+🧠 Clasificado como averia (fuente: LLM) · ⚠️ camión 99 no existe: se descartó
 ❓ Faltan datos: ¿Qué camión tiene la avería? Indica el número de camión.
 ```
 

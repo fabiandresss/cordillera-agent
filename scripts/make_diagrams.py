@@ -153,3 +153,73 @@ fig.tight_layout()
 fig.savefig(BOC / "boceto_ui.png")
 plt.close(fig)
 print("Diagramas generados en", DIAG, "y", BOC)
+
+
+# ---------------------------------------------------------------- 4. diagramas simples (informe y presentación)
+# Lienzo angosto (7,2 in) para que la tipografía se lea bien al insertarlos en una página A4.
+def simple_canvas(w_in, h_in):
+    fig, ax = plt.subplots(figsize=(w_in, h_in), dpi=260)
+    ax.set_xlim(0, 100)
+    ax.set_ylim(0, 100 * h_in / w_in)
+    ax.axis("off")
+    return fig, ax
+
+
+def sbox(ax, x, y, w, h, text, color, fs=10.5, bold=False, ec="#374151", tc="#111827"):
+    ax.add_patch(FancyBboxPatch((x - w / 2, y - h / 2), w, h, boxstyle="round,pad=0.4,rounding_size=2",
+                                fc=color, ec=ec, lw=1.4))
+    ax.text(x, y, text, ha="center", va="center", fontsize=fs, fontweight="bold" if bold else "normal",
+            color=tc, linespacing=1.2)
+
+
+def sarrow(ax, p1, p2, label="", color="#374151", rad=0.0, fs=9, lx=0, ly=0):
+    ax.add_patch(FancyArrowPatch(p1, p2, arrowstyle="-|>", mutation_scale=13, lw=1.5, color=color,
+                                 connectionstyle=f"arc3,rad={rad}"))
+    if label:
+        ax.text((p1[0] + p2[0]) / 2 + lx, (p1[1] + p2[1]) / 2 + ly, label, fontsize=fs, ha="center",
+                va="center", color=color, bbox=dict(fc="white", ec="none", pad=0.8))
+
+
+# --- arquitectura simple
+fig, ax = simple_canvas(7.2, 5.0)
+sbox(ax, 15, 61, 26, 9.5, "Despachador", C["ui"], 11, True)
+sbox(ax, 50, 61, 26, 9.5, "Panel web", C["ui"], 11, True)
+sbox(ax, 85, 61, 26, 9.5, "API", C["ui"], 11, True)
+sarrow(ax, (28.4, 61), (36.6, 61))
+sarrow(ax, (63.4, 61), (71.6, 61))
+ax.add_patch(FancyBboxPatch((3, 22), 94, 30, boxstyle="round,pad=0.4,rounding_size=2", fc="#faf5ff", ec="#7c3aed", lw=1.8, ls="--"))
+ax.text(50, 48.4, "Agente (LangGraph)", ha="center", va="center", fontsize=11, fontweight="bold", color="#6d28d9")
+for i, t in enumerate(["Entiende\nel mensaje", "Recuerda\ncasos", "Planifica\ny revisa", "Actúa\ny avisa"]):
+    x = 16.5 + i * 22.3
+    sbox(ax, x, 33, 18.5, 11.5, t, C["node"], 10)
+    if i:
+        sarrow(ax, (x - 22.3 + 9.7, 33), (x - 9.7, 33))
+sarrow(ax, (85, 56.2), (85, 52.6))
+sbox(ax, 17, 8, 29, 11, "Herramientas\n(consultar y escribir)", C["tool"], 10)
+sbox(ax, 50, 8, 29, 11, "Memoria\n(corta y larga)", C["store"], 10)
+sbox(ax, 83, 8, 29, 11, "IA de lenguaje\n(Groq, Ollama, reglas)", C["llm"], 10)
+for x in (17, 50, 83):
+    sarrow(ax, (x, 21.2), (x, 14.2), color="#6b7280")
+fig.savefig(DIAG / "arquitectura_simple.png", bbox_inches="tight", pad_inches=0.06)
+plt.close(fig)
+
+# --- flujo simple
+fig, ax = simple_canvas(7.2, 3.5)
+xs = [7.6, 21.8, 36.0, 50.2, 64.4, 78.6, 92.8]
+labels = ["Mensaje\nrecibido", "Entender\nel mensaje", "Recordar\ncasos", "Decidir\nqué hacer",
+          "Planificar\nentregas", "Revisar\nel plan", "Ejecutar\ny avisar"]
+for x, t in zip(xs, labels):
+    sbox(ax, x, 38, 12.6, 11, t, C["node"], 8.6)
+for a_, b_ in zip(xs, xs[1:]):
+    sarrow(ax, (a_ + 6.9, 38), (b_ - 6.9, 38))
+sbox(ax, 14, 8.5, 20, 10, "Pedir el dato\nque falta", C["warn"], 9)
+sbox(ax, 41, 8.5, 20, 10, "Avisar al\nsupervisor", C["warn"], 9)
+sbox(ax, 79, 8.5, 25, 10, "Corregir el plan\n(hasta 3 veces)", C["warn"], 9)
+sarrow(ax, (19.5, 32.2), (14.5, 13.8), "falta un dato", "#b45309", lx=-8, fs=8.2)
+sarrow(ax, (25, 32.2), (38, 13.8), "no se entiende", "#b91c1c", lx=10, ly=1, fs=8.2)
+sarrow(ax, (78.6, 32.2), (78.8, 13.8), "no cumple", "#b45309", lx=7.5, fs=8.2)
+sarrow(ax, (72, 13.8), (64.4, 32.2), "reintenta", "#b45309", rad=-0.12, lx=-7, fs=8.2)
+sarrow(ax, (66.2, 8.5), (51.3, 8.5), "sigue fallando", "#b91c1c", ly=3.4, fs=8.2)
+fig.savefig(DIAG / "flujo_simple.png", bbox_inches="tight", pad_inches=0.06)
+plt.close(fig)
+print("Diagramas simples generados")

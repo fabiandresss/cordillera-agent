@@ -9,3 +9,4 @@ outputs/*
 *.db
 .coverage
 frontend/node_modules/
+docs/informe/*.bookmarks.json

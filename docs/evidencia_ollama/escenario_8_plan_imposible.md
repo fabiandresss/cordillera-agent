@@ -6,7 +6,7 @@ _Proveedor LLM: `ollama` · embeddings: `ollama` · umbral de similitud: 0.6_
 
 ```text
 📥 Evento recibido: «Inicio de jornada»
-🧠 Clasificado como nuevo_dia (fuente: llm)
+🧠 Clasificado como nuevo_dia (fuente: LLM)
 🗓️ Inicio de jornada 2026-10-26: se planifican todos los pedidos abiertos
 🗺️ Plan calculado a las 08:00: 25 entregas en 5 camiones
 ⚠️ Validación: 1 violaciones (VENTANA)
@@ -27,7 +27,7 @@ Ejemplos de avisos a clientes:
 
 ```text
 📥 Evento recibido: «A las 11:00 el cliente 2 (VIP) necesita el pedido 14 antes de las 11:01»
-🧠 Clasificado como vip_urgente (fuente: llm) · entidades: {'order_id': 14, 'client_id': 2}
+🧠 Clasificado como vip_urgente (fuente: LLM) · pedido 14, cliente 2
 📚 Memoria larga: incidente similar (similitud 0.776): «Laboratorio VIP pidió adelantar su pedido por una muestra con cadena de frío Resolución: Se adelantó el pedido…» → estrategia previa: priorizar_y_reordenar
 📖 Política aplicable: 01_prioridad_clientes_vip.md
 ⏱️ Reloj simulado a 11:00; entregas ya realizadas: [9, 1, 3, 20, 5, 11, 10, 18, 12]

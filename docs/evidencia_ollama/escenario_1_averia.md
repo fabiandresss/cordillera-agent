@@ -6,7 +6,7 @@ _Proveedor LLM: `ollama` · embeddings: `ollama` · umbral de similitud: 0.6_
 
 ```text
 📥 Evento recibido: «Inicio de jornada»
-🧠 Clasificado como nuevo_dia (fuente: llm)
+🧠 Clasificado como nuevo_dia (fuente: LLM)
 🗓️ Inicio de jornada 2026-10-26: se planifican todos los pedidos abiertos
 🗺️ Plan calculado a las 08:00: 25 entregas en 5 camiones
 ⚠️ Validación: 1 violaciones (VENTANA)
@@ -19,11 +19,7 @@ _Proveedor LLM: `ollama` · embeddings: `ollama` · umbral de similitud: 0.6_
 **Resultado:** `ok`
 
 Ejemplos de avisos a clientes:
-- (cliente 9, pedido 9, inicial) Hola Laboratorio Andes,
-
-Su pedido #9 está programado para llegar a las 08:19 (ventana 08:00-11:00). Transportes Cordillera.
-
-Gracias por preferirnos.
+- (cliente 9, pedido 9, inicial) Hola Laboratorio Andes: su pedido #9 está programado para llegar a las 08:19 (ventana 08:00-11:00). Transportes Cordillera.
 - (cliente 2, pedido 1, inicial) Hola, Farmacia Santa Rita. Su pedido #1 está programado para llegar a las 09:00 (ventana 09:00-11:30). Transporte Cordillera.
 - (cliente 5, pedido 3, inicial) Hola Clínica Dental Sonrisa, su pedido #3 está programado para llegar a las 09:15 (ventana 09:00-11:30). Transportes Cordillera.
 
@@ -31,7 +27,7 @@ Gracias por preferirnos.
 
 ```text
 📥 Evento recibido: «A las 11:00 el camión 3 se averió en la Zona Norte»
-🧠 Clasificado como averia (fuente: llm) · entidades: {'truck_id': 3}
+🧠 Clasificado como averia (fuente: LLM) · camión 3
 📚 Memoria larga: incidente similar (similitud 0.725): «El camión no arranca por batería descargada en zona Norte Resolución: Se reasignaron las entregas pendientes a…» → estrategia previa: reasignar_a_mayor_capacidad
 📖 Política aplicable: 02_averia_de_camion.md
 ⏱️ Reloj simulado a 11:00; entregas ya realizadas: [9, 1, 3, 20, 5, 11, 10, 18, 12]
@@ -47,7 +43,7 @@ Gracias por preferirnos.
 
 Ejemplos de avisos a clientes:
 - (cliente 9, pedido 24, cambio_camion) Hola Laboratorio Andes: por un imprevisto operativo, su pedido #24 será atendido por otro camión. La hora estimada es aproximadamente las 14:00. Gracias por su comprensión.
-- (cliente 7, pedido 15, cambio_camion) Hola, Taller Mecánico. Por un imprevisto operativo, su pedido #15 será atendido por otro camión. La hora estimada es 14:13. Gracias por su comprensión.
+- (cliente 7, pedido 15, cambio_camion) Hola, Taller Mecánico. Su pedido #15 será atendido por otro camión debido a un imprevisto operativo. La hora estimada es 14:13. Gracias por su comprensión.
 - (cliente 9, pedido 4, cambio_camion) Hola Laboratorio Andes,
 
 Queremos informarte que por un imprevisto operativo, su pedido #4 será atendido por otro camión. La hora estimada para su entrega es las 12:00. Gracias por su comprensión.

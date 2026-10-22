@@ -6,7 +6,7 @@ _Proveedor LLM: `ollama` · embeddings: `ollama` · umbral de similitud: 0.6_
 
 ```text
 📥 Evento recibido: «Inicio de jornada»
-🧠 Clasificado como nuevo_dia (fuente: llm)
+🧠 Clasificado como nuevo_dia (fuente: LLM)
 🗓️ Inicio de jornada 2026-10-26: se planifican todos los pedidos abiertos
 🗺️ Plan calculado a las 08:00: 25 entregas en 5 camiones
 ⚠️ Validación: 1 violaciones (VENTANA)
@@ -27,7 +27,7 @@ Ejemplos de avisos a clientes:
 
 ```text
 📥 Evento recibido: «A las 10:00 cliente ausente en el pedido 11»
-🧠 Clasificado como entrega_fallida (fuente: reglas (prevalecieron sobre el LLM, que dijo 'nuevo_dia')) · entidades: {'order_id': 11}
+🧠 Clasificado como entrega_fallida (fuente: reglas (prevalecieron sobre el LLM)) · pedido 11
 📚 Memoria larga: incidente similar (similitud 0.743): «Nadie recibió el pedido en la oficina, portería sin autorización Resolución: Se reintentó el mismo día con avi…» → estrategia previa: reintento_misma_jornada
 📖 Política aplicable: 03_entregas_fallidas.md
 ⏱️ Reloj simulado a 10:00; entregas ya realizadas: [9, 1, 3, 20, 10, 18]
@@ -51,7 +51,7 @@ Ejemplos de avisos a clientes:
 
 ```text
 📥 Evento recibido: «A las 13:00 nuevamente ausente en el pedido 11, nadie lo recibió»
-🧠 Clasificado como entrega_fallida (fuente: reglas (prevalecieron sobre el LLM, que dijo 'nuevo_dia')) · entidades: {'order_id': 11}
+🧠 Clasificado como entrega_fallida (fuente: reglas (prevalecieron sobre el LLM)) · pedido 11
 📚 Memoria larga: incidente similar (similitud 0.761): «A las 10:00 cliente ausente en el pedido 11 Resolución: Estrategia reintento_misma_jornada: 3 pedidos cambiaro…» → estrategia previa: reintento_misma_jornada
 📖 Política aplicable: 03_entregas_fallidas.md
 ⏱️ Reloj simulado a 13:00; entregas ya realizadas: [5, 11, 17, 6, 16, 14, 7, 4, 19, 12]

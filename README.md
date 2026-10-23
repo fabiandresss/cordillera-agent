@@ -149,27 +149,3 @@ repositorio, conclusiones y reflexiones) se completan directamente en los archiv
 ├── scripts/         generate_evidence.py · make_diagrams.py · build_informe_duoc.py · build_presentacion.py
 └── docs/            diagramas · bocetos · evidencia · decisiones
 ```
-
-## 12. Limitaciones
-Geografía y tráfico simulados; una carga por camión y jornada; heurística voraz con reparación local
-(no óptimo global); avisos simulados (`outputs/outbox.jsonl`); un LLM de 1.5B es débil en *tool
-calling*, por eso las decisiones críticas son código. Detalle en [docs/decisiones.md](docs/decisiones.md).
-
-## 13. Declaración de uso de IA
-> **Completar por el equipo antes de entregar** (la evaluación exige declarar qué herramientas de IA se
-> usaron y cómo). Ejemplo de formato: «Se usó Claude (Anthropic) como asistente para generar código
-> base, pruebas y diagramas, que fueron revisados y validados por el equipo. Las justificaciones
-> técnicas, conclusiones y reflexiones fueron redactadas por los integrantes sin apoyo de IA.»
-
-## 14. Referencias (APA 7)
-- Chase, H. (2022–). *LangChain* [Software]. LangChain, Inc. https://github.com/langchain-ai/langchain
-- LangChain, Inc. (2024). *LangGraph documentation*. https://langchain-ai.github.io/langgraph/
-- Chroma. (2023). *Chroma: the AI-native open-source embedding database*. https://www.trychroma.com/
-- Ollama. (2023). *Ollama* [Software]. https://ollama.com
-- Groq, Inc. (2024). *GroqCloud documentation*. https://console.groq.com/docs
-- Nussbaum, Z., Morris, J. X., Duderstadt, B., & Mulyar, A. (2024). *Nomic Embed: Training a reproducible long context text embedder*. arXiv:2402.01613.
-- Qwen Team. (2024). *Qwen2.5 technical report*. arXiv:2412.15115.
-- Yao, S., Zhao, J., Yu, D., Du, N., Shafran, I., Narasimhan, K., & Cao, Y. (2023). ReAct: Synergizing reasoning and acting in language models. *International Conference on Learning Representations (ICLR)*. arXiv:2210.03629.
-- Ramírez, S. (2018). *FastAPI* [Software]. https://fastapi.tiangolo.com
-- Meta Platforms, Inc. (2013). *React* [Software]. https://react.dev
-- You, E. (2020). *Vite* [Software]. https://vite.dev
